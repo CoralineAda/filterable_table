@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "filterable_table.gemspec",
      "init.rb",
      "javascripts/filterable_table.js",
      "lib/filterable_table.rb",
