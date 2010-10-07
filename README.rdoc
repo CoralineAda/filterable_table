@@ -1,6 +1,51 @@
 = filterable_table
 
-Description goes here.
+FilterableTable uses client-side JavaScript to hide or show table rows based on characters typed by a user. Simply type the characters to be used for filtering the table and press enter to focus the table; press escape to show all table rows. 
+
+This gem is currently in alpha mode; use at your own risk. It's been tested under Safari only; IE is not currently supported.
+
+== Installation
+
+* Install the gem:
+
+    gem install filterable_table
+    
+* Add the following to your application's Rakefile:
+
+    require 'filterable_table/tasks'
+    
+* Install the supporting code:
+
+    rake filterable_table:install
+
+* Add this line to your app/helpers/application_helper.rb file:
+
+    include FilterableTable::Helper
+
+== Usage
+
+Usage is simple. First, set the class name of each table row in your table to 'filterable'. Then insert the filter_table method just before where your table appears in the view.
+
+Example:
+
+  <%= filter_table -%>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%- @foos.each do |foo| -%>
+        <tr class="filterable">
+          <td><%= foo.name -%></td>
+          <td><%= foo.url -%></td>
+        </tr>
+      <%- end -%>
+    </tbody>
+  </table>
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +59,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 Bantik. See LICENSE for details.
+Copyright (c) 2010 Corey Ehmke / SEO Logic. See LICENSE for details.
